@@ -11,6 +11,7 @@ module Spree
 
       initializer "spree.load_preferences", :before => "spree.environment" do
         ::ActiveRecord::Base.send :include, Spree::Preferences::Preferable
+        ::ActiveRecord::Base.extend Spree::Preferences::PreferableClassMethods
       end
 
       initializer "spree.register.calculators" do |app|
