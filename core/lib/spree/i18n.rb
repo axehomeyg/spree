@@ -14,8 +14,7 @@ module Spree
 
       options = args.extract_options!
       options[:scope] = [*options[:scope]].unshift(:spree)
-      args << options
-      super(*args)
+      super(*args, **options)
     end
 
     alias_method :t, :translate

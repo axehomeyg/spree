@@ -1,6 +1,5 @@
 module Spree
   class Image < Asset
-    validates_attachment_presence :attachment
     validate :no_attachment_errors
 
     has_attached_file :attachment,
@@ -10,6 +9,7 @@ module Spree
                       path: ':rails_root/public/spree/products/:id/:style/:basename.:extension',
                       convert_options: { all: '-strip -auto-orient -colorspace sRGB' }
 
+    validates_attachment_presence :attachment
     # save the w,h of the original image (from which others can be calculated)
     # we need to look at the write-queue for images which have not been saved yet
     after_post_process :find_dimensions

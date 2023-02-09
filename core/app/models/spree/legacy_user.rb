@@ -1,4 +1,4 @@
-# Default implementation of User.  This class is intended to be modified by extensions (ex. spree_auth_devise)
+# Default implementation of User. This class is intended to be modified by extensions (ex. spree_auth_devise)
 module Spree
   class LegacyUser < ActiveRecord::Base
     include Core::UserAddress
