@@ -1,3 +1,4 @@
+require 'bigdecimal'
 # The preference_cache_key is used to determine if the preference
 # can be set. The default behavior is to return nil if there is no
 # id value. On ActiveRecords, new objects will have their preferences
@@ -115,7 +116,7 @@ module Spree::Preferences::Preferable
     when :password
       value.to_s
     when :decimal
-      BigDecimal.new(value.to_s).round(2, BigDecimal::ROUND_HALF_UP)
+      BigDecimal(value.to_s).round(2, BigDecimal::ROUND_HALF_UP)
     when :integer
       value.to_i
     when :boolean
